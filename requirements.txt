@@ -1,0 +1,9 @@
+boto3
+streamlit
+fastapi
+uvicorn
+python-multipart
+opencv-python-headless
+easyocr
+spacy
+pymongo
