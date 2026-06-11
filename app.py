@@ -7,20 +7,19 @@ import boto3
 import psycopg2 
 import fitz  # PyMuPDF to process PDF files
 from psycopg2.extras import Json
-
 # ==========================================
-# 1. ENVIRONMENT CONFIGURATION
+# 1. ENVIRONMENT CONFIGURATION (SECURED VIA STREAMLIT SECRETS)
 # ==========================================
-AWS_BUCKET_NAME = "idp-document-storage-final-2026" 
-AWS_REGION = "us-east-1" 
-AWS_ACCESS_KEY_ID = "YOUR_AWS_ACCESS_KEY_HERE"
-AWS_SECRET_ACCESS_KEY = "P0G95Ro75/02khsR9CfAc0fZyPHkXaP08gH69Qyp"
+AWS_BUCKET_NAME = st.secrets["AWS_BUCKET_NAME"]
+AWS_REGION = st.secrets["AWS_REGION"]
+AWS_ACCESS_KEY_ID = st.secrets["AWS_ACCESS_KEY_ID"]
+AWS_SECRET_ACCESS_KEY = st.secrets["AWS_SECRET_ACCESS_KEY"]
 
-DB_HOST = "finaldatabase-1.ck3u0weu8m1t.us-east-1.rds.amazonaws.com"
-DB_PORT = 5432
-DB_NAME = "postgres"
-DB_USER = "finalidp"
-DB_PASSWORD = "MySecureIDPPass2026!"
+DB_HOST = st.secrets["DB_HOST"]
+DB_PORT = int(st.secrets["DB_PORT"])
+DB_NAME = st.secrets["DB_NAME"]
+DB_USER = st.secrets["DB_USER"]
+DB_PASSWORD = st.secrets["DB_PASSWORD"]
 
 # ==========================================
 # 2. IMAGE & PDF PREPROCESSING & CLASSIFICATION LOGIC
