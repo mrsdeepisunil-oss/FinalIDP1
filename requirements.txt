@@ -8,3 +8,4 @@ easyocr
 spacy
 pymongo
 fitz
+psycopg2
